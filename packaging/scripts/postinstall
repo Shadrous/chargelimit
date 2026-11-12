@@ -1,0 +1,9 @@
+#!/bin/sh
+# Save the default limit (80/70) unless one is already configured, then load the boot job.
+PLIST=/Library/LaunchDaemons/local.chargelimit.plist
+mkdir -p /usr/local/etc
+[ -f /usr/local/etc/chargelimit.conf ] || echo "80 70" > /usr/local/etc/chargelimit.conf
+chown root:wheel "$PLIST" && chmod 644 "$PLIST"
+launchctl bootout system "$PLIST" 2>/dev/null
+launchctl bootstrap system "$PLIST"
+exit 0

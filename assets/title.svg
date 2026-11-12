@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="640" viewBox="0 0 1280 640">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0A0F1E"/>
+      <stop offset="1" stop-color="#121B31"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0.5" cy="0.5" r="0.5">
+      <stop offset="0" stop-color="#34D399" stop-opacity="0.22"/>
+      <stop offset="1" stop-color="#34D399" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="charge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#059669"/>
+      <stop offset="1" stop-color="#5EEAD4"/>
+    </linearGradient>
+    <linearGradient id="word" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#34D399"/>
+      <stop offset="1" stop-color="#5EEAD4"/>
+    </linearGradient>
+    <pattern id="hatch" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <line x1="0" y1="0" x2="0" y2="14" stroke="#24314F" stroke-width="5"/>
+    </pattern>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M40 0H0V40" fill="none" stroke="#FFFFFF" stroke-opacity="0.035" stroke-width="1"/>
+    </pattern>
+    <clipPath id="cell"><rect x="796" y="246" width="338" height="148" rx="18"/></clipPath>
+  </defs>
+
+  <rect width="1280" height="640" fill="url(#bg)"/>
+  <rect width="1280" height="640" fill="url(#grid)"/>
+  <circle cx="980" cy="320" r="330" fill="url(#glow)"/>
+
+  <!-- text block -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif">
+    <rect x="96" y="148" width="316" height="40" rx="20" fill="#34D399" fill-opacity="0.1" stroke="#34D399" stroke-opacity="0.35"/>
+    <text x="254" y="174" text-anchor="middle" font-size="17" font-weight="600" fill="#6EE7B7" letter-spacing="0.5">Apple Silicon · macOS Sequoia</text>
+
+    <text x="92" y="288" font-size="100" font-weight="800" fill="#F8FAFC" letter-spacing="-3">charge<tspan fill="url(#word)">limit</tspan></text>
+
+    <text x="96" y="352" font-size="30" font-weight="500" fill="#CBD5E1">Keep your MacBook battery at 80%.</text>
+    <text x="96" y="394" font-size="30" font-weight="500" fill="#7C8BA5">Set it once. Nothing keeps running.</text>
+
+    <g font-size="18" font-weight="600" fill="#CBD5E1">
+      <rect x="96" y="452" width="132" height="44" rx="12" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      <text x="162" y="480" text-anchor="middle">~300 KB</text>
+      <rect x="244" y="452" width="236" height="44" rx="12" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      <text x="362" y="480" text-anchor="middle">0 background processes</text>
+      <rect x="496" y="452" width="130" height="44" rx="12" fill="#FFFFFF" fill-opacity="0.05" stroke="#FFFFFF" stroke-opacity="0.1"/>
+      <text x="561" y="480" text-anchor="middle">pure Rust</text>
+    </g>
+  </g>
+
+  <!-- battery -->
+  <rect x="780" y="230" width="370" height="180" rx="34" fill="#0D1426" stroke="#33415F" stroke-width="6"/>
+  <rect x="1158" y="288" width="18" height="64" rx="8" fill="#33415F"/>
+  <g clip-path="url(#cell)">
+    <rect x="796" y="246" width="338" height="148" fill="url(#hatch)"/>
+    <rect x="796" y="246" width="270" height="148" fill="url(#charge)"/>
+  </g>
+  <path d="M942 268 L908 326 H934 L922 372 L962 308 H936 Z" fill="#FFFFFF" fill-opacity="0.92"/>
+
+  <!-- limit markers -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Display', 'Segoe UI', Helvetica, Arial, sans-serif" font-weight="700">
+    <line x1="1066" y1="196" x2="1066" y2="420" stroke="#F8FAFC" stroke-width="3" stroke-dasharray="7 7"/>
+    <text x="1066" y="182" text-anchor="middle" font-size="22" fill="#F8FAFC">80% stop</text>
+    <line x1="1032" y1="400" x2="1032" y2="446" stroke="#94A3B8" stroke-width="3" stroke-dasharray="5 6"/>
+    <text x="1032" y="474" text-anchor="middle" font-size="20" fill="#94A3B8">70% resume</text>
+  </g>
+</svg>

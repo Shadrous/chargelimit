@@ -1,0 +1,16 @@
+[package]
+name = "chargelimit"
+version = "0.1.0"
+edition = "2021"
+description = "Tiny event-driven battery charge limiter for Apple Silicon MacBooks (macOS Sequoia)"
+license = "MIT"
+
+# No dependencies: talks to IOKit / CoreFoundation directly over FFI.
+[dependencies]
+
+[profile.release]
+opt-level = "s"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = false  # toolchain rust-objcopy is broken here; build.sh strips with system strip
