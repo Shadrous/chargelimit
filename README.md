@@ -37,7 +37,18 @@ go lower.)
 
 ## Install
 
-You'll need [Rust](https://rustup.rs) to build it.
+**The easy way:** grab the ready-made package from
+[Releases](https://github.com/Shadrous/chargelimit/releases/latest) and install it from Terminal:
+
+```sh
+curl -LO https://github.com/Shadrous/chargelimit/releases/download/v0.1.0/chargelimit-0.1.0.pkg
+sudo installer -pkg chargelimit-0.1.0.pkg -target /
+```
+
+The package isn't signed by Apple, so double-clicking it will be blocked. The
+`installer` command above works fine.
+
+**Or build it yourself** with [Rust](https://rustup.rs):
 
 ```sh
 git clone https://github.com/Shadrous/chargelimit.git
@@ -46,7 +57,7 @@ sh build.sh
 sudo installer -pkg dist/chargelimit-0.1.0.pkg -target /
 ```
 
-That's it. Your Mac now stops charging at 80% and resumes below 70%.
+Either way, your Mac now stops charging at 80% and resumes below 70%.
 
 ## Use
 
@@ -71,8 +82,11 @@ expected.
 ## Uninstall
 
 ```sh
-sudo sh dist/uninstall.sh
+curl -LO https://github.com/Shadrous/chargelimit/releases/download/v0.1.0/uninstall.sh
+sudo sh uninstall.sh
 ```
+
+(If you built from source, `sudo sh dist/uninstall.sh` does the same.)
 
 This turns the limit off (normal charging) and removes everything chargelimit installed.
 
