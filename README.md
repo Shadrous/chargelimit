@@ -2,9 +2,7 @@
   <img src="assets/title.svg" alt="chargelimit: keep your MacBook battery at 80%. Set it once. Nothing keeps running." width="100%">
 </p>
 
-Lithium batteries last longer when they don't sit at 100% all day. If your MacBook
-lives on the charger, capping it around 80% is one of the easiest ways to keep the
-battery healthy for years.
+I just wanted my battery limiter app to have no background processes, turns out it was possible.
 
 **chargelimit** does exactly that, and then gets out of the way.
 
@@ -31,8 +29,8 @@ It's built for and tested on an **M1 MacBook Pro running macOS 15.8.3**. It shou
 work on other Apple Silicon MacBooks on Sequoia 15.8. If your firmware doesn't have
 the right controls, chargelimit says so and refuses to do anything.
 
-On **macOS 26.4 and later** you don't need this: Apple added a Charge Limit slider
-under *System Settings → Battery*. (That slider stops at 80%. chargelimit lets you
+On **macOS 26.4 and later** you probably don't need this: Apple added a Charge Limit slider
+under *System Settings → Battery*. (That slider stops at 80% though, and chargelimit lets you
 go lower.)
 
 ## Install
@@ -105,11 +103,13 @@ chargelimit talks to the SMC through IOKit, writes these keys and exits. The who
 thing is under 300 lines in [`src/`](src). Credit to
 [batt](https://github.com/charlie0129/batt) for documenting these keys.
 
-## Caveats
+## Notes
 
-- This is a personal tool with a short shelf life. It targets Sequoia's firmware and
+- This is a personal tool with a short shelf life. I just wanted an immediate solution before the
+  eventual move to a higher version
+- This targets Sequoia's firmware and
   may stop working (or become pointless) after a big macOS update. Uninstall it
-  before upgrading.
+  **before** upgrading.
 - It writes to your Mac's power controller as root. It only touches the three keys
   above, but you're running it at your own risk.
 
