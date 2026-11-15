@@ -13,7 +13,8 @@ switch charging off at the right moment. I wanted something that costs nothing.
 
 It turns out the firmware that ships with **macOS Sequoia 15.8** on Apple Silicon
 can enforce a charge limit on its own. You tell it "stop at 80, start again below
-70" and it handles the rest, even while the Mac is asleep. chargelimit just writes
+70" and it handles the rest, even while the Mac is asleep (not while it's shut
+down, see [Use](#use)). chargelimit just writes
 those two numbers and exits.
 
 - **No background process.** It runs for a few milliseconds and quits.
@@ -76,6 +77,13 @@ limit:   on (stop at 80%, resume below 70%)
 **Good to know:** if the battery is already above your limit when you plug in, the
 Mac runs on the charger and lets the battery drift down to the limit. That's
 expected.
+
+**Shut down vs. sleep:** the limit holds while the Mac is asleep, but not while
+it's fully shut down. If you shut down with the charger plugged in, the Mac will
+charge to 100%. When you plug in for the night, close the lid instead of shutting
+down, or unplug first. When you turn the Mac back on, chargelimit puts the limit
+back, and the battery drifts down to it over time. Hitting 100% now and then is
+fine. What wears a battery is sitting at 100% for long stretches.
 
 ## Uninstall
 
